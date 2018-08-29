@@ -15,7 +15,6 @@ public class G00 {
                 Spindle.startX++;
                 Spindle.startY += slope;
             }
-//            input.points.add(new Point2D(Spindle.startX, Spindle.startY));
         }
 
         else if (Spindle.startX == endPoint.getX() && Spindle.startY < endPoint.getY()) {
@@ -23,7 +22,6 @@ public class G00 {
                 input.points.add(new Point2D(Spindle.startX, Spindle.startY));
                 Spindle.startY++;
             }
-//            input.points.add(new Point2D(Spindle.startX, Spindle.startY));
 
         }
             else if (Spindle.startY == endPoint.getY() && Spindle.startX < endPoint.getX()) {
@@ -32,7 +30,6 @@ public class G00 {
                 input.points.add(new Point2D(Spindle.startX, Spindle.startY));
                 Spindle.startX++;
             }
-//            input.points.add(new Point2D(Spindle.startX, Spindle.startY));
         }
         else         if (Spindle.startX > endPoint.getX() && Spindle.startY > endPoint.getY()) {
 
@@ -41,7 +38,6 @@ public class G00 {
                 Spindle.startX--;
                 Spindle.startY -= slope;
             }
-//            input.points.add(new Point2D(Spindle.startX, Spindle.startY));
 
 
 
@@ -51,9 +47,47 @@ public class G00 {
                 input.points.add(new Point2D(Spindle.startX, Spindle.startY));
                 Spindle.startY--;
             }
-//            input.points.add(new Point2D(Spindle.startX, Spindle.startY));
+
+
+
 
         }
+
+        else if (Spindle.startY==endPoint.getY() && Spindle.startX>endPoint.getX()){
+            while (Spindle.startX != endPoint.getX() ) {
+                input.points.add(new Point2D(Spindle.startX, Spindle.startY));
+                Spindle.startX--;
+            }
+
+
+
+
+        }
+
+        else if (Spindle.startY<endPoint.getY() && Spindle.startX>endPoint.getX()){
+            while (Spindle.startX != endPoint.getX() && Spindle.startY != endPoint.getY() ) {
+                input.points.add(new Point2D(Spindle.startX, Spindle.startY));
+                Spindle.startX--;
+                Spindle.startY-=slope;
+            }
+
+
+
+
+        }
+
+        else if (Spindle.startY>endPoint.getY() && Spindle.startX<endPoint.getX()){
+            while (Spindle.startX != endPoint.getX() && Spindle.startY != endPoint.getY() ) {
+                input.points.add(new Point2D(Spindle.startX, Spindle.startY));
+                Spindle.startX++;
+                Spindle.startY+=slope;
+            }
+
+
+
+
+        }
+
 
             input.cut = false;
         Spindle.allTasks.add(input);
